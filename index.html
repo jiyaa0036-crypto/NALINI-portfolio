@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nalini Gupta | Aspiring Data Scientist</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bark:#000;--tawny:#d9a04a;--ember:#f0b04a;--bone:#f6ebd3;--moss:#7fa35a;--panel:rgba(22,14,7,.78);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bark);color:var(--bone);font:400 17px/1.6 Figtree,system-ui,sans-serif;overflow-x:hidden}
+#fur{position:fixed;inset:0;width:100%;height:100%;z-index:-2;filter:brightness(.55)}
+.veil{position:fixed;inset:0;z-index:-1;background:radial-gradient(ellipse at 50% 30%,rgba(0,0,0,.25),rgba(0,0,0,.78))}
+h1,h2,h3{font-family:Syne,Impact,sans-serif;line-height:1.05;margin:0}
+main{max-width:1000px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+h2{font-size:clamp(30px,5vw,46px);margin-bottom:28px;color:var(--ember)}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;perspective:900px}
+.hero h1{font-size:clamp(46px,10vw,112px);font-weight:800;color:var(--bone);transform:rotateX(calc(var(--ry,0)*1deg)) rotateY(calc(var(--rx,0)*1deg));transform-style:preserve-3d;
+text-shadow:calc(var(--sx,2)*1px) calc(var(--sy,2)*1px) 0 #b9741f,calc(var(--sx,2)*2px) calc(var(--sy,2)*2px) 0 #8a5215,calc(var(--sx,2)*3px) calc(var(--sy,2)*3px) 0 #5f380e,calc(var(--sx,2)*4px) calc(var(--sy,2)*4px) 8px rgba(0,0,0,.6)}
+.hero p{max-width:34em;font-size:clamp(18px,2.4vw,22px);margin:22px 0 30px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:13px 22px;border-radius:999px;background:var(--ember);color:var(--bark);font-weight:600;text-decoration:none;border:2px solid var(--ember);transition:transform .2s,background .2s}
+.btn.alt{background:transparent;color:var(--bone);border-color:var(--bone)}
+.btn:hover,.btn:focus-visible{transform:translateY(-3px) scale(1.04);outline:none}
+.btn:focus-visible{box-shadow:0 0 0 3px var(--bone)}
+.panel{background:var(--panel);border:1px solid rgba(240,176,74,.35);border-radius:18px;padding:24px;backdrop-filter:blur(4px)}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.tilt{transition:transform .15s ease-out;transform-style:preserve-3d;will-change:transform}
+.tilt h3{font-size:22px;margin-bottom:8px}
+.bar{height:10px;border-radius:9px;background:rgba(246,235,211,.15);margin:12px 0 6px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--moss),var(--ember))}
+.tag{font-size:14px;color:var(--tawny)}
+.about{display:grid;gap:24px;grid-template-columns:1.4fr 1fr;align-items:start}
+@media(max-width:720px){.about{grid-template-columns:1fr}}
+.about ul{margin:0;padding-left:18px}
+.road{position:relative;margin:0;padding:0 0 0 30px;list-style:none;border-left:3px dashed var(--tawny)}
+.road li{position:relative;margin-bottom:22px}
+.road li::before{content:"";position:absolute;left:-40px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--bark);border:3px solid var(--ember)}
+.road li.done::before{background:var(--moss);border-color:var(--moss)}
+.road li.now::before{background:var(--ember);box-shadow:0 0 0 6px rgba(240,176,74,.3)}
+.badge{text-align:center;border-style:dashed}
+.badge b{font-size:34px;display:block}
+form{display:grid;gap:12px;margin-top:18px}
+input,textarea{font:inherit;padding:12px 14px;border-radius:12px;border:1px solid rgba(246,235,211,.35);background:rgba(0,0,0,.4);color:var(--bone)}
+input:focus,textarea:focus{outline:2px solid var(--ember)}
+footer{text-align:center;padding:40px 20px 120px;color:var(--tawny)}
+/* intro film */
+#intro{position:fixed;inset:0;z-index:50;background:#050302;display:flex;align-items:center;justify-content:center;flex-direction:column;transition:opacity 1s}
+#intro::before,#intro::after{content:"";position:absolute;left:0;right:0;height:12vh;background:#000}
+#intro::before{top:0}#intro::after{bottom:0}
+#intro.out{opacity:0;pointer-events:none}
+.eyes{position:absolute;top:34%;display:flex;gap:70px;animation:open 2.4s .4s both}
+.eyes span{width:46px;height:20px;border-radius:50%;background:radial-gradient(circle,#111 0 18%,#c8e64a 20% 60%,transparent 70%);box-shadow:0 0 30px 8px rgba(200,230,74,.55)}
+@keyframes open{from{opacity:0;transform:scaleY(.05)}to{opacity:1;transform:scaleY(1)}}
+.cap{position:absolute;top:52%;width:min(90vw,700px);text-align:center;font:800 clamp(22px,4.5vw,40px)/1.2 Syne,sans-serif;opacity:0;animation:cap 2.6s both}
+.cap:nth-of-type(1){animation-delay:1.6s}.cap:nth-of-type(2){animation-delay:4.2s}.cap:nth-of-type(3){animation-delay:6.8s}
+@keyframes cap{0%{opacity:0;transform:translateY(14px) scale(.96)}15%,80%{opacity:1;transform:none}100%{opacity:0}}
+#enter{position:absolute;bottom:18vh;opacity:0;animation:cap2 1s 9.2s forwards;cursor:pointer;font:inherit}
+@keyframes cap2{to{opacity:1}}
+#skip{position:absolute;right:18px;bottom:calc(14vh + 10px);background:none;border:0;color:var(--bone);opacity:.7;font:inherit;cursor:pointer;z-index:2}
+#intro:not(.play) *{animation-play-state:paused}
+#begin{position:absolute;z-index:3;top:60%;font:inherit;cursor:pointer}
+#intro.play #begin{display:none}
+#snd{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:14px;z-index:60;width:44px;height:44px;border-radius:50%;border:2px solid var(--ember);background:rgba(0,0,0,.6);color:var(--bone);font-size:20px;cursor:pointer;display:none}
+/* leopard guide */
+#guide{position:fixed;right:12px;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:20;display:flex;align-items:flex-end;gap:8px;pointer-events:none}
+#say{max-width:210px;background:var(--bone);color:var(--bark);padding:10px 14px;border-radius:16px 16px 4px 16px;font-size:15px;line-height:1.35;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.45)}
+#guide svg{width:96px;height:auto;flex:none;animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-6px)}}
+/* 3D cursor */
+.cur,.dot{position:fixed;top:0;left:0;pointer-events:none;z-index:99;display:none}
+@media(hover:hover) and (pointer:fine){body.live{cursor:none}body.live a,body.live button{cursor:none}.cur,.dot{display:block}}
+.cur{width:40px;height:40px;margin:-20px 0 0 -20px;border:3px solid var(--ember);border-radius:50%;box-shadow:0 0 14px rgba(240,176,74,.7),inset 0 0 8px rgba(240,176,74,.5);transition:width .2s,height .2s,margin .2s}
+.cur.big{width:64px;height:64px;margin:-32px 0 0 -32px}
+.dot{width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:var(--bone)}
+.trail{position:fixed;top:0;left:0;width:10px;height:10px;margin:-5px;border-radius:50%;background:var(--ember);pointer-events:none;z-index:98;display:none}
+@media(hover:hover) and (pointer:fine){.trail{display:block}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-delay:0s!important}.tilt,.hero h1{transform:none!important}}
+</style>
+</head>
+<body>
+<canvas id="fur"></canvas><div class="veil"></div>
+
+<div id="intro" role="dialog" aria-label="Intro film">
+  <div class="eyes"><span></span><span></span></div>
+  <div class="cap">Deep in the data jungle,<br>something is watching.</div>
+  <div class="cap">Every dataset hides a pattern.<br>Every pattern has a hunter.</div>
+  <div class="cap">Meet Nalini Gupta.</div>
+  <button id="begin" class="btn">Tap to begin (turn sound on)</button>
+  <button id="enter" class="btn">Enter the jungle</button>
+  <button id="skip">Skip intro</button>
+</div>
+
+<main>
+<section class="hero" id="top" data-say="Hi! I'm Rani. Nalini is my hunting partner. Follow me and see her work.">
+  <div class="tag">BTech, AI &amp; Machine Learning &middot; Maharishi Dayanand University</div>
+  <h1 id="title">Nalini<br>Gupta</h1>
+  <p>Second-year student on the path to data science. I turn messy data into clear answers, and I'm looking for an internship starting next year.</p>
+  <div class="btns"><a class="btn" href="#projects">See my projects</a><a class="btn alt" href="#contact">Contact me</a></div>
+</section>
+
+<section id="about" data-say="Nalini learns fast and builds things. Here's her story.">
+  <h2>About me</h2>
+  <div class="about">
+    <div class="panel"><p>I'm Nalini, a second-year BTech student in AI and Machine Learning. I'm training to become a data scientist: my Python course is almost complete, SQL and statistics are underway, and Excel and more tools come next.</p><p>My plan is simple: finish the fundamentals, build real projects with them, and apply for internships from next year.</p></div>
+    <div class="panel"><h3>Quick facts</h3><ul><li>Maharishi Dayanand University</li><li>BTech, 2nd year</li><li>Goal: Data Scientist</li><li>Open to internships from next year</li></ul></div>
+  </div>
+</section>
+
+<section id="skills" data-say="Her toolkit: sharp already, and growing every week.">
+  <h2>Skills</h2>
+  <div class="grid" id="skillGrid"></div>
+</section>
+
+<section id="roadmap" data-say="This is the trail she is walking. Each stop unlocks a new skill.">
+  <h2>Learning roadmap</h2>
+  <ol class="road" id="roadList"></ol>
+</section>
+
+<section id="certs" data-say="Badges from finished courses go here.">
+  <h2>Certificates</h2>
+  <div class="grid" id="certGrid"></div>
+</section>
+
+<section id="projects" data-say="Projects are coming after Python and SQL. Watch this space!">
+  <h2>Projects</h2>
+  <div class="grid" id="projGrid"></div>
+  <p style="margin-top:22px"><a class="btn alt" href="https://github.com/jiyaa0036-crypto" target="_blank" rel="noopener">View my GitHub</a></p>
+</section>
+
+<section id="contact" data-say="Want to hire her or say hi? Send a message!">
+  <h2>Let's connect</h2>
+  <div class="panel">
+    <p>Email: <a href="mailto:jiyaa0036@gmail.com" style="color:var(--ember)">jiyaa0036@gmail.com</a><br>LinkedIn: <a href="https://www.linkedin.com/in/nalini-gupta-98b143376" target="_blank" rel="noopener" style="color:var(--ember)">linkedin.com/in/nalini-gupta-98b143376</a></p>
+    <div class="btns"><a class="btn" href="mailto:jiyaa0036@gmail.com">Email me</a><a class="btn alt" href="https://www.linkedin.com/in/nalini-gupta-98b143376" target="_blank" rel="noopener">Open LinkedIn</a></div>
+    <form id="mail"><input id="fn" placeholder="Your name" required aria-label="Your name"><textarea id="fm" rows="4" placeholder="Your message" required aria-label="Your message"></textarea><button class="btn" type="submit">Send by email</button></form>
+  </div>
+</section>
+</main>
+<footer>Nalini Gupta &middot; Built in the data jungle</footer>
+
+<div id="guide" aria-live="polite">
+  <div id="say">Hi! I'm Rani. Follow me!</div>
+  <svg viewBox="0 0 120 120" aria-hidden="true">
+    <ellipse cx="22" cy="26" rx="16" ry="18" fill="#c58a34"/><ellipse cx="98" cy="26" rx="16" ry="18" fill="#c58a34"/>
+    <ellipse cx="22" cy="28" rx="8" ry="10" fill="#4a2a10"/><ellipse cx="98" cy="28" rx="8" ry="10" fill="#4a2a10"/>
+    <ellipse cx="60" cy="66" rx="48" ry="46" fill="#dba44e"/>
+    <ellipse cx="60" cy="86" rx="26" ry="20" fill="#f6e3b8"/>
+    <g fill="#1a0f07"><circle cx="30" cy="42" r="4"/><circle cx="90" cy="42" r="4"/><circle cx="20" cy="66" r="4"/><circle cx="100" cy="66" r="4"/><circle cx="38" cy="30" r="3"/><circle cx="82" cy="30" r="3"/><circle cx="60" cy="26" r="3"/><circle cx="44" cy="94" r="2"/><circle cx="76" cy="94" r="2"/></g>
+    <circle cx="42" cy="58" r="13" fill="#eef5b8"/><circle cx="78" cy="58" r="13" fill="#eef5b8"/>
+    <circle id="pl" cx="42" cy="58" r="6" fill="#111"/><circle id="pr" cx="78" cy="58" r="6" fill="#111"/>
+    <path d="M52 78h16l-8 9z" fill="#5b2e2e"/><path d="M60 87v6M60 93q-8 6-14 1M60 93q8 6 14 1" fill="none" stroke="#1a0f07" stroke-width="2.5" stroke-linecap="round"/>
+  </svg>
+</div>
+<button id="snd" aria-label="Sound on or off">&#128266;</button>
+<div class="cur" id="cur"></div><div class="dot" id="dot"></div>
+
+<script>
+/* ---- EDIT HERE: add your own skills, roadmap, certificates and projects ---- */
+const skills=[
+ {n:"Python",s:"Almost done",p:90,d:"Core language for data work."},
+ {n:"SQL",s:"In progress",p:50,d:"Querying and joining data."},
+ {n:"Statistics",s:"In progress",p:40,d:"The maths behind every insight."},
+ {n:"Excel",s:"Up next",p:10,d:"Quick analysis and clean reports."}];
+const road=[
+ {t:"Python",d:"Course almost complete.",c:"now"},
+ {t:"SQL",d:"Learning now.",c:"now"},
+ {t:"Statistics",d:"Learning now.",c:"now"},
+ {t:"Excel, more stats and other tools",d:"Coming soon.",c:""},
+ {t:"Real projects",d:"Build after Python and SQL.",c:""},
+ {t:"Internship applications",d:"Starting next year.",c:""}];
+const certs=[{t:"Your first certificate",d:"Add it here when you finish a course."},{t:"Python course",d:"Add badge on completion."},{t:"SQL course",d:"Add badge on completion."}];
+const projs=[
+ {t:"Project 1: Data analysis with Python",d:"Coming after the Python course."},
+ {t:"Project 2: SQL database analysis",d:"Coming after SQL."},
+ {t:"Project 3: Statistics case study",d:"Planned next."}];
+/* ---------------------------------------------------------------- */
+const $=q=>document.querySelector(q);
+skills.forEach(k=>$("#skillGrid").insertAdjacentHTML("beforeend",`<div class="panel tilt"><h3>${k.n}</h3><span class="tag">${k.s}</span><div class="bar"><i style="width:${k.p}%"></i></div><p>${k.d}</p></div>`));
+road.forEach(r=>$("#roadList").insertAdjacentHTML("beforeend",`<li class="${r.c}"><h3>${r.t}</h3><span>${r.d}</span></li>`));
+certs.forEach(c=>$("#certGrid").insertAdjacentHTML("beforeend",`<div class="panel badge tilt"><b>&#127894;</b><h3>${c.t}</h3><span class="tag">${c.d}</span></div>`));
+projs.forEach(p=>$("#projGrid").insertAdjacentHTML("beforeend",`<div class="panel tilt"><h3>${p.t}</h3><p>${p.d}</p><span class="tag">Coming soon</span></div>`));
+
+/* leopard fur */
+(function(){const c=$("#fur"),x=c.getContext("2d");let seed=7;const R=()=>(seed=(seed*16807)%2147483647)/2147483647;
+function draw(){c.width=innerWidth;c.height=innerHeight;seed=7;
+let g=x.createLinearGradient(0,0,c.width,c.height);g.addColorStop(0,"#0d0906");g.addColorStop(.5,"#050403");g.addColorStop(1,"#0c0805");x.fillStyle=g;x.fillRect(0,0,c.width,c.height);
+for(let i=0;i<5000;i++){x.strokeStyle=`rgba(${150+R()*60|0},${100+R()*40|0},40,.09)`;x.lineWidth=1;const a=R()*c.width,b=R()*c.height,t=R()*6.28;x.beginPath();x.moveTo(a,b);x.lineTo(a+Math.cos(t)*6,b+Math.sin(t)*6);x.stroke()}
+const s=Math.max(64,Math.min(c.width,c.height)/9);
+for(let row=-1;row*s*.9<c.height+s;row++)for(let col=-1;col*s<c.width+s;col++){
+ const cx=col*s+(row%2?s/2:0)+(R()-.5)*s*.35,cy=row*s*.9+(R()-.5)*s*.3,rx=s*(.30+R()*.1),ry=s*(.22+R()*.1),rot=R()*3;
+ x.fillStyle="rgba(46,30,16,.9)";x.beginPath();x.ellipse(cx,cy,rx*.85,ry*.8,rot,0,6.28);x.fill();
+ x.fillStyle="rgba(70,46,22,.7)";x.beginPath();x.ellipse(cx+2,cy+1,rx*.5,ry*.45,rot,0,6.28);x.fill();
+ const n=6+(R()*3|0);let a=R()*6.28;
+ for(let k=0;k<n;k++){const len=6.28/n*(.55+R()*.35);x.strokeStyle=R()>.5?"#c98a2b":"#e0a94a";x.shadowColor="rgba(240,176,74,.45)";x.shadowBlur=6;x.lineCap="round";x.lineWidth=s*(.09+R()*.06);
+  x.beginPath();x.ellipse(cx,cy,rx*(.95+R()*.15),ry*(.95+R()*.15),rot,a,a+len);x.stroke();a+=6.28/n}
+ for(let k=0;k<2;k++){x.shadowBlur=0;x.fillStyle="#a8701f";x.beginPath();x.ellipse(cx+(R()-.5)*s*1.1,cy+s*.42+(R()-.5)*s*.3,s*.06,s*.045,R()*3,0,6.28);x.fill()}
+}}
+draw();let t;addEventListener("resize",()=>{clearTimeout(t);t=setTimeout(draw,200)})})();
+
+/* intro film */
+function enter(){$("#intro").classList.add("out");document.body.classList.add("live");setTimeout(()=>$("#intro").remove(),1100)}
+/* dark sound + deep voice */
+let AC,master,muted=false,timers=[];
+function startAudio(){if(AC)return;AC=new(window.AudioContext||window.webkitAudioContext)();master=AC.createGain();master.gain.value=0;master.connect(AC.destination);master.gain.linearRampToValueAtTime(.6,AC.currentTime+4);
+ const lp=AC.createBiquadFilter();lp.type="lowpass";lp.frequency.value=150;lp.connect(master);
+ const lfo=AC.createOscillator(),lg=AC.createGain();lfo.frequency.value=.07;lg.gain.value=70;lfo.connect(lg);lg.connect(lp.frequency);lfo.start();
+ [[41.2,"sawtooth",.35],[41.9,"sawtooth",.35],[55,"triangle",.25],[27.5,"sine",.8],[82.4,"sine",.12]].forEach(([f,t,v])=>{const o=AC.createOscillator(),g=AC.createGain();o.type=t;o.frequency.value=f;g.gain.value=v;o.connect(g);g.connect(lp);o.start()});
+ const nb=AC.createBuffer(1,AC.sampleRate*2,AC.sampleRate),d=nb.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;
+ const ns=AC.createBufferSource();ns.buffer=nb;ns.loop=true;const bp=AC.createBiquadFilter();bp.type="bandpass";bp.frequency.value=260;bp.Q.value=.8;const ng=AC.createGain();ng.gain.value=.05;ns.connect(bp);bp.connect(ng);ng.connect(master);ns.start();
+ function thump(t,v){const o=AC.createOscillator(),g=AC.createGain();o.frequency.setValueAtTime(70,t);o.frequency.exponentialRampToValueAtTime(28,t+.25);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.001,t+.45);o.connect(g);g.connect(master);o.start(t);o.stop(t+.5)}
+ setInterval(()=>{if(AC.state==="running"){const t=AC.currentTime;thump(t,.9);thump(t+.32,.6)}},2200);
+ $("#snd").style.display="block"}
+function speak(t){if(muted||!window.speechSynthesis)return;const u=new SpeechSynthesisUtterance(t),v=speechSynthesis.getVoices().find(x=>/en/i.test(x.lang)&&/male|david|daniel|alex|george|mark/i.test(x.name));if(v)u.voice=v;u.pitch=.1;u.rate=.7;u.volume=1;speechSynthesis.speak(u)}
+$("#snd").onclick=()=>{muted=!muted;master.gain.value=muted?0:.6;if(muted&&window.speechSynthesis)speechSynthesis.cancel();$("#snd").innerHTML=muted?"&#128263;":"&#128266;"};
+$("#begin").onclick=()=>{startAudio();$("#intro").classList.add("play");
+ [[1800,"Deep in the data jungle. Something is watching."],[4400,"Every dataset hides a pattern. Every pattern has a hunter."],[7000,"Meet Nalini Gupta."]].forEach(([ms,t])=>timers.push(setTimeout(()=>speak(t),ms)));
+ timers.push(setTimeout(enter,13000))};
+function stopTalk(){timers.forEach(clearTimeout);if(window.speechSynthesis)speechSynthesis.cancel()}
+$("#enter").onclick=()=>{stopTalk();enter()};$("#skip").onclick=()=>{stopTalk();enter()};
+
+/* 3D cursor, trail, title depth, eyes */
+const cur=$("#cur"),dot=$("#dot"),tr=[];for(let i=0;i<8;i++){const d=document.createElement("div");d.className="trail";d.style.opacity=(1-i/8)*.6;d.style.transform="scale("+(1-i/10)+")";document.body.appendChild(d);tr.push({d,x:0,y:0})}
+let mx=innerWidth/2,my=innerHeight/2,cx=mx,cy=my;
+addEventListener("mousemove",e=>{mx=e.clientX;my=e.clientY;dot.style.transform=`translate(${mx}px,${my}px)`;
+ const h=$("#title").style,w=innerWidth,ht=innerHeight,px=(mx/w-.5),py=(my/ht-.5);
+ h.setProperty("--sx",(-px*14).toFixed(1));h.setProperty("--sy",(-py*14).toFixed(1));h.setProperty("--rx",(px*10).toFixed(1));h.setProperty("--ry",(-py*10).toFixed(1));
+ const gx=$("#guide").getBoundingClientRect(),ex=gx.right-50,ey=gx.bottom-62,a=Math.atan2(my-ey,mx-ex);
+ [["#pl",42],["#pr",78]].forEach(([q,b])=>{const p=$(q);p.setAttribute("cx",b+Math.cos(a)*5);p.setAttribute("cy",58+Math.sin(a)*5)});
+ e.target.closest("a,button,.tilt")?cur.classList.add("big"):cur.classList.remove("big")});
+(function loop(){const vx=mx-cx,vy=my-cy;cx+=vx*.25;cy+=vy*.25;
+ cur.style.transform=`translate(${cx}px,${cy}px) perspective(200px) rotateX(${Math.max(-60,Math.min(60,-vy*3))}deg) rotateY(${Math.max(-60,Math.min(60,vx*3))}deg)`;
+ let px=cx,py=cy;tr.forEach(t=>{t.x+=(px-t.x)*.35;t.y+=(py-t.y)*.35;t.d.style.left=t.x+"px";t.d.style.top=t.y+"px";px=t.x;py=t.y});requestAnimationFrame(loop)})();
+
+/* card tilt on hover */
+document.addEventListener("mousemove",e=>{const c=e.target.closest(".tilt");document.querySelectorAll(".tilt").forEach(n=>{if(n!==c)n.style.transform=""});
+ if(!c)return;const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+ c.style.transform=`perspective(700px) rotateY(${x*14}deg) rotateX(${-y*14}deg) translateZ(10px)`});
+
+/* guide talks as you scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)$("#say").textContent=e.target.dataset.say}),{threshold:.5});
+document.querySelectorAll("[data-say]").forEach(s=>io.observe(s));
+
+/* contact form opens the visitor's email app */
+$("#mail").onsubmit=e=>{e.preventDefault();location.href="mailto:jiyaa0036@gmail.com?subject="+encodeURIComponent("Portfolio message from "+$("#fn").value)+"&body="+encodeURIComponent($("#fm").value)};
+</script>
+</body>
+</html>
